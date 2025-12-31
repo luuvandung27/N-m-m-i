@@ -234,11 +234,13 @@ setInterval(()=>{
   }
 },1000);
 
-setInterval(()=>{
+function autoFireworks(){
   const x=Math.random()*canvas.width;
   const y=canvas.height*0.2+Math.random()*250;
-  burst(x,y,isNewYear?200:80);
-},isNewYear?250:700);
+  burst(x,y,isNewYear ? 200 : 80);
+  setTimeout(autoFireworks, isNewYear ? 250 : 700);
+}
+autoFireworks();
 
 (function anim(){
   ctx.fillStyle="rgba(0,0,0,.25)";
